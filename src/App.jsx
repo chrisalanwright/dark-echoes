@@ -31,6 +31,25 @@ function Episodes() {
   return (
     <section className="episodes">
       <h2>Episodes</h2>
+      <ul className="episodes">
+        {episodes.map((episode) => (
+          <li key={episode.id} onClick={() => setSelectedEpisode(episode)}>
+            {episode.title}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
+
+return (
+  <>
+    <header>
+      <h1>Dark Echoes</h1>
+    </header>
+    <main>
+      <Episode />
+      <EpisodeDetails />
+    </main>
+  </>
+);
