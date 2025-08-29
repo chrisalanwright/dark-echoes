@@ -1,55 +1,55 @@
 import { useState } from "react";
-import { episodeList } from "./data";
+import { episodeList } from "./data.js";
 
 export default function App() {
   const [episodes] = useState(episodeList);
   const [selectedEpisode, setSelectedEpisode] = useState();
-}
 
-function EpisodeDetails() {
-  if (!selectedEpisode) {
+  function EpisodeDetails() {
+    if (!selectedEpisode) {
+      return (
+        <section className="details">
+          <h2>Episode Details</h2>
+          <p>Select an episode to learn more.</p>
+        </section>
+      );
+    }
+
     return (
       <section className="details">
-        <h2>Episode Details</h2>
-        <p>Select an episode to learn more.</p>
+        <h2>{selectedEpisode.title}</h2>
+        <p>
+          Episode {selectedEpisode.id}: {selectedEpisode.title}
+        </p>
+        <p>{selectedEpisode.description}</p>
+      </section>
+    );
+  }
+
+  function Episodes() {
+    return (
+      <section className="episodes">
+        <h2>Episodes</h2>
+        <ul className="episodes">
+          {episodes.map((episode) => (
+            <li key={episode.id} onClick={() => setSelectedEpisode(episode)}>
+              {episode.title}
+            </li>
+          ))}
+        </ul>
       </section>
     );
   }
 
   return (
-    <section className="details">
-      <h2>{selectedEpisode.title}</h2>
-      <p>
-        {selectedEpisode.title} is episode number {selectedEpisode.id}
-      </p>
-      <p>{selectedEpisode.description}</p>
-    </section>
+    <>
+      <header>
+        <h1>Dark Echoes</h1>
+      </header>
+      <main>
+        <Episodes />
+        <EpisodeDetails />
+      </main>
+    </>
   );
 }
-
-function Episodes() {
-  return (
-    <section className="episodes">
-      <h2>Episodes</h2>
-      <ul className="episodes">
-        {episodes.map((episode) => (
-          <li key={episode.id} onClick={() => setSelectedEpisode(episode)}>
-            {episode.title}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
-return (
-  <>
-    <header>
-      <h1>Dark Echoes</h1>
-    </header>
-    <main>
-      <Episode />
-      <EpisodeDetails />
-    </main>
-  </>
-);
