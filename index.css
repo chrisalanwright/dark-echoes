@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
 }
 
 header {
@@ -17,12 +21,26 @@ main {
 
 .episodes {
   text-align: center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .episodes ul {
   list-style-position: inside;
 }
 
+.episodes li {
+  cursor: pointer;
+}
+
 .details {
   text-align: center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
 }
