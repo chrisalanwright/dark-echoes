@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.episodes {
+  text-align: center;
+}
+
+.episodes ul {
+  list-style-position: inside;
+}
+
+.details {
+  text-align: center;
+}
